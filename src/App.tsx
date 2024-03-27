@@ -11,7 +11,7 @@ import GitHub from './Components/GitHub';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/portfolio'>
       <Header />
       <Switch>
         <Route path='/about'><About /></Route>
