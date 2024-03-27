@@ -25,7 +25,6 @@ const Index = styled.div`
   font-size: 26px;
   font-weight: bolder;
   line-height: 52px;
-  text-shadow: var(--lightTextShadow);
 `;
 
 const Title = styled.h1`

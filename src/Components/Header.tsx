@@ -108,7 +108,7 @@ export default function Header() {
     <Wrapper>
       <Logo>
         <Link to='/'>
-          <img src="logo.png" alt="logo" />
+          <img src="./logo.png" alt="logo" />
           </Link>
       </Logo>
       <div ref={scope}>

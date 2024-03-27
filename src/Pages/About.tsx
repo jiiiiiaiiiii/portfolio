@@ -24,7 +24,6 @@ const Index = styled.div`
   font-size: 26px;
   font-weight: bolder;
   line-height: 52px;
-  text-shadow: var(--lightTextShadow);
 `;
 
 const Img = styled.div`
@@ -73,7 +72,7 @@ export default function About() {
     <Wrapper>
       <Index>About</Index>
       <Img>
-        <img src='profile.png' />
+        <img src='./profile.png' />
       </Img>
       <Infos>
         <Info>

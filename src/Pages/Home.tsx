@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   height: 90vh;
   width: 100vw;
-	background-image: url("home.png");
+	background-image: url("./home.png");
 	background-size: cover;
 	padding: 40px;
 	color: white;
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 		line-height: 2;
 		font-weight: bold;
 		&:not(:nth-child(2)) {
-			opacity: 0.8;
+			opacity: 0.7;
 		}
 	}
 `;

@@ -24,7 +24,6 @@ const Index = styled.div`
   font-size: 26px;
   font-weight: bolder;
   line-height: 52px;
-  text-shadow: var(--lightTextShadow);
 `;
 
 const Container = styled.div`
@@ -169,7 +168,7 @@ const projects: IProject[] = [
     id: '0',
     name: 'Coin Tracker',
     desc: 'API를 활용한 실시간 \n가상화폐(코인) 가격 추적',
-    img: 'coin-tracker.png',
+    img: './coin-tracker.png',
     skill:
       'React, TypeScript,\nRecoil, React-query, \nStyled-component\n(ApexChart, React-Helmet)',
     site: 'https://jiiiiiaiiiii.github.io/react__coin-tracker',
@@ -180,7 +179,7 @@ const projects: IProject[] = [
     id: '1',
     name: 'To Do List',
     desc: 'cool project',
-    img: 'todo-list.png',
+    img: './todo-list.png',
     skill: 'React, TypeScript, Recoil, React-hook-form, Styled-component',
     site: 'https://jiiiiiaiiiii.github.io/react__todo-list',
     github: 'https://github.com/jiiiiiaiiiii/react__todo-list',
@@ -189,7 +188,7 @@ const projects: IProject[] = [
     id: '2',
     name: '[WW]Social Activity Learning Service',
     desc: 'cool project',
-    img: 'ww.png',
+    img: './ww.png',
     skill: 'React, Redux, Node.js, MongoDB, Vercel',
     site: 'https://0-final-project-team6-w6x1.vercel.app/',
     github:
@@ -200,7 +199,7 @@ const projects: IProject[] = [
     id: '3',
     name: 'CSS Layout',
     desc: 'cool project',
-    img: 'css.png',
+    img: './css.png',
     skill: 'HTML, CSS(SCSS)',
     site: 'https://jiiiiiaiiiii.github.io/css__layout',
     github: 'https://github.com/jiiiiiaiiiii/css__layout',
