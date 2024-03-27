@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import '../styles.css';
 
 const Btn = styled.div`
 	width: 50px;
@@ -8,11 +9,11 @@ const Btn = styled.div`
   z-index: 100;
 	position: absolute;
 	top: 20px;
-	right: 15px;
+	right: 35px;
 	padding: 15px;
-	background-color: rgba(190, 183, 180, 0.6);
+	background-color: var(--accentColor);
 	cursor: pointer;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--darkBoxShadow);
 `;
 
 const Path = styled(motion.path)`

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
-import GitHub from '../Components/GitHub';
+import '../styles.css';
 
 const Wrapper = styled.div`
   height: 110vh;
@@ -16,65 +16,66 @@ const Wrapper = styled.div`
 const Index = styled.div`
   position: absolute;
   top: 0;
-  left: 40px;
-  width: 200px;
+  width: 100%;
   height: 60px;
-  padding: 15px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  background-color: rgba(190, 183, 180, 0.8);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: var(--indexColor);
+  box-shadow: var(--lightBoxShadow);
   text-align: center;
   color: whitesmoke;
-  font-size: 24px;
-  letter-spacing: 2px;
+  font-size: 26px;
+  font-weight: bolder;
+  line-height: 52px;
+  text-shadow: var(--lightTextShadow);
 `;
 
 const Title = styled.h1`
   margin-top: 100px;
-  font-size: 28px;
-  line-height: 2;
-  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.3);
+  font-size: 34px;
+  line-height: 1.8;
 `;
 
 const EmailForm = styled.form`
-  margin: 40px auto;
-  width: 640px;
+  margin: 30px auto;
+  width: 620px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 50px;
+  gap: 15px;
+  padding: 40px 50px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
-  font-size: 22px;
+  box-shadow: var(--lightBoxShadow);
+  label {
+    font-size: 28px;
+  }
   input {
-    font-size: 24px;
     padding: 10px;
+    font-size: 20px;
+    border: 0.5px solid black;
+    margin-bottom: 10px;
   }
   textarea {
     padding: 10px;
     min-height: 100px;
-    font-size: 22px;
     font-family: inherit;
+    font-size: 20px;
+    border: 0.5px solid black;
   }
   button {
     color: whitesmoke;
     font-family: inherit;
     font-size: 24px;
+    margin-top: 10px;
     padding: 10px;
     font-weight: 600;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
-    background-color: rgba(190, 183, 180, 0.8);
+    box-shadow: var(--darkBoxShadow);
+    background-color: var(--accentColor);
     transition: 0.2s ease-in-out;
-    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: var(--textShadow);
     &:hover {
       cursor: pointer;
-      color: gray;
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.2);
-      background-color: rgba(190, 183, 180, 0.4);
+      background-color: var(--hoverColor);
     }
   }
 `;
@@ -98,14 +99,14 @@ const Send = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--lightBoxShadow);
 `;
 
 const Svg = styled.svg`
   width: 250px;
   height: 250px;
   path {
-    stroke: rgba(190, 183, 180, 1);
+    stroke: var(--accentColor);
     stroke-width: 3;
   }
 `;
@@ -113,11 +114,11 @@ const Svg = styled.svg`
 const svgVar = {
   start: {
     pathLength: 0,
-    fill: 'rgba(135, 130, 127, 0)',
+    fill: 'rgba(4, 19, 43, 0)',
   },
   end: {
     pathLength: 1,
-    fill: 'rgba(135, 130, 127, 1)',
+    fill: 'rgba(4, 19, 43, 1)',
     transition: {
       default: { duration: 3 }, // 모든 property에 적용
       fill: { duration: 1, delay: 2 },
@@ -166,7 +167,7 @@ export default function Contact() {
         <input
           type='email'
           name='from_mail'
-          placeholder='eg, hello@gmail.com'
+          placeholder='eg, abc123@mail.com'
         />
         <label>Title</label>
         <input required type='text' name='from_title' />
@@ -193,7 +194,6 @@ export default function Contact() {
           </Send>
         </Overlay>
       ) : null}
-      <GitHub />
     </Wrapper>
   );
 }

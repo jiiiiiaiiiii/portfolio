@@ -1,11 +1,9 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createGlobalStyle } from 'styled-components';
 import App from './App';
+import './styles.css';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -35,9 +33,6 @@ footer, header, hgroup, main, menu, nav, section {
 *[hidden] {
     display: none;
 }
-body {
-  line-height: 1;
-}
 menu, ol, ul {
   list-style: none;
 }
@@ -57,21 +52,21 @@ table {
   box-sizing: border-box;
 }
 body {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: var(--normalFont);
   font-weight: 400;
   font-style: normal;
-  color:black;
+  color: black;
   line-height: 1.2;
-  /* background:linear-gradient(135deg,rgb(243, 242, 239),rgb(244, 243, 238)); */
-  background-color: rgba(190, 183, 180, 0.2);
+  background-color: var(--bgColor);
 }
-h1, li {
-  font-family: 'Times New Roman', Times, serif;
-  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.3);
+h1, li, label {
+  font-family: var(--accentFont);
+  text-shadow: var(--textShadow);
 }
 a {
-  text-decoration:none;
-  color:inherit;
+  text-decoration: none;
+  font-weight: bolder;
+  /* color:var(--accentColor); */
 }
 `;
 

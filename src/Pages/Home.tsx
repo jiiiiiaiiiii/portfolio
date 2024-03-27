@@ -3,29 +3,26 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   height: 90vh;
   width: 100vw;
-  display: flex;
-	justify-content: space-between;
-	background-image: url("wave.jpg");
+	background-image: url("home.png");
 	background-size: cover;
 	padding: 40px;
 	color: white;
 	h1 {
-		margin-top: 10px;
-		font-size: 54px;
-		font-weight: 600;
+		font-size: 60px;
 		line-height: 2;
-	}
-	span {
-		margin-top: 80vh;
-		font-style: italic;
+		font-weight: bold;
+		&:not(:nth-child(2)) {
+			opacity: 0.8;
+		}
 	}
 `;
 
 function Home() {
 	return (
 		<Wrapper>
-			<h1>JEE AE PARK <br /> Front-End Developer<br />Portfolio </h1>
-			<span>Last updated / 2024. 3. 27.</span>
+			<h1>Front-End Developer<br /></h1>
+			<h1>&lt; PARK JEE AE /&gt; <br /> </h1>
+			<h1>Portfolio </h1>
 		</Wrapper>
 	)
 }

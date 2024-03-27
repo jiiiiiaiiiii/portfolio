@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+body {
+	/* --bgColor: rgba(190, 183, 180, 0.2);  */
+	--bgColor: rgba(128, 128, 128, 0.3);
+	--indexColor: rgba(92, 93, 103, 0.9);
+	--accentColor: rgb(4, 19, 43);
+	--hoverColor: rgb(36, 22, 129);
+	--lightTextShadow : 0 2px 3px rgba(255, 255, 255, 0.2), 0 10px 20px rgba(255, 255, 255, 0.4);
+	--textShadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.3);
+	--lightBoxShadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
+	--darkBoxShadow: 0 2px 3px rgba(0, 0, 0, 0.3), 0 8px 15px rgba(0, 0, 0, 0.4);
+	--normalFont: "Noto Sans KR", sans-serif;
+	--accentFont: 'Times New Roman', Times, serif;
+}

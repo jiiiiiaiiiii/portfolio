@@ -3,6 +3,57 @@ import { motion, useAnimate, stagger } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ToggleMenu } from './ToggleMenu';
 import { Link } from 'react-router-dom';
+import '../styles.css';
+
+const Wrapper = styled.div`
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: white;
+  box-shadow: var(--darkBoxShadow);
+`;
+
+const Logo = styled.div`
+display: flex;
+align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
+  img {
+    margin-top: 10px;
+    width: 250px;
+    opacity: 0.8;
+  }
+`;
+
+const Nav = styled(motion.nav)`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  background-color: var(--accentColor);
+  padding: 150px 30px;
+  transform: translateX(100%);
+  box-shadow: var(--darkBoxShadow);
+  z-index: 90;
+  li {
+    font-size: 44px;
+    margin-bottom: 48px;
+    margin-left: 20px;
+    color: whitesmoke;
+    text-shadow: var(--lightTextShadow);
+    &:hover {
+      cursor: pointer;
+      font-weight: bold;
+      color: aliceblue;
+      text-decoration: line-through;
+    }
+  }
+`;
 
 function useMenuAnimation(isOpen: boolean) {
   const [scope, animate] = useAnimate();
@@ -49,75 +100,15 @@ function useMenuAnimation(isOpen: boolean) {
   return scope;
 }
 
-const Wrapper = styled.div`
-  height: 10vh;
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  background-color: white;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.05);
-`;
-
-const Logo = styled.div`
-display: flex;
-align-items: center;
-  &:hover {
-    cursor: pointer;
-  }
-  img {
-    margin-top: 10px;
-    width: 250px;
-    opacity: 0.8;
-  }
-  /* span {
-    font-size: 25px;
-    color: black;
-    font-weight: bold;
-    font-style: italic;
-    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.4);
-  } */
-`;
-
-const Nav = styled(motion.nav)`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 400px;
-  background-color: rgb(190, 183, 180);
-  padding: 150px 30px;
-  transform: translateX(100%);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.4);
-  z-index: 90;
-  li {
-    font-size: 44px;
-    margin-bottom: 48px;
-    margin-left: 20px;
-    color: whitesmoke;
-    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.5);
-    &:hover {
-      cursor: pointer;
-      font-weight: bold;
-      color: aliceblue;
-      /* color: rgb(89, 89, 89); */
-      text-decoration: line-through;
-    }
-  }
-`;
-
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
   const scope = useMenuAnimation(isOpen);
 
   return (
     <Wrapper>
       <Logo>
         <Link to='/'>
-          {/* <span>&lt; PARK JEE AE /&gt;</span> */}
-          <img src="logo.png" alt="" />
+          <img src="logo.png" alt="logo" />
           </Link>
       </Logo>
       <div ref={scope}>

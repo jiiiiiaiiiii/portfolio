@@ -11,7 +11,7 @@ const Icon = styled.a`
 		box-shadow: 5px 5px 10px black;
 		position: fixed;
 		bottom: 5%;
-		right: 5%;
+		right: 35px;
 		&:hover {
 			transform: translateY(-5px);
 		}

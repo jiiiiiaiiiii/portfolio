@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import GitHub from '../Components/GitHub';
 
 const Wrapper = styled.div`
-  height: 90vh;
+  /* height: 90vh; */
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -16,47 +15,51 @@ const Wrapper = styled.div`
 const Index = styled.div`
   position: absolute;
   top: 0;
-  left: 40px;
-  width: 200px;
+  width: 100%;
   height: 60px;
-  padding: 15px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  background-color: rgba(190, 183, 180, 0.8);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: var(--indexColor);
+  box-shadow: var(--lightBoxShadow);
   text-align: center;
   color: whitesmoke;
-  font-size: 24px;
-  letter-spacing: 2px;
+  font-size: 26px;
+  font-weight: bolder;
+  line-height: 52px;
+  text-shadow: var(--lightTextShadow);
 `;
 
-const Grid = styled.div`
+const Container = styled.div`
   margin-top: 80px;
   padding: 60px 40px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 70%;
+  width: 80%;
   height: 100%;
-  gap: 20px;
+  gap: 35px;
 `;
 
 const Box = styled(motion.div)`
   position: relative;
   display: flex;
-  gap: 15px;
+  gap: 20px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 350px;
   width: 480px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--lightBoxShadow);
   overflow: hidden;
   h1 {
+    display: block;
+    border-bottom: 1px solid var(--hoverColor);
+    padding-bottom: 10px;
     font-size: 24px;
+    font-weight: bold;
+    color: var(--hoverColor);
+    font-family: var(--normalFont);
   }
   p {
     position: absolute;
@@ -76,7 +79,7 @@ const Box = styled(motion.div)`
   &:hover {
     cursor: pointer;
     p {
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.5);
       color: white;
     }
   }
@@ -84,7 +87,7 @@ const Box = styled(motion.div)`
 
 const Overlay = styled(motion.div)`
   width: 100%;
-  height: 120%;
+  height: 100%;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -92,10 +95,12 @@ const Overlay = styled(motion.div)`
 `;
 
 const OverBox = styled(Box)`
-  width: 55%;
+  width: 60%;
   max-width: 800px;
   height: max-content;
   padding: 30px;
+  background-color: rgb(255, 255, 255);
+  white-space: pre-wrap;
   & > div {
     display: flex;
     justify-content: center;
@@ -103,8 +108,38 @@ const OverBox = styled(Box)`
     flex-wrap: wrap;
     gap: 25px;
   }
+  img {
+    height: 300px;
+    width: 450px;
+    border-radius: 5px;
+  }
+  h1 {
+    font-size: 34px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 22px;
+    text-decoration: underline;
+    font-weight: 600;
+    color: var(--accentColor);
+    margin-bottom: 10px;
+  }
+  span {
+    display: block;
+    font-size: 18px;
+    line-height: 1.4;
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+    &:last-child {
+      font-size: 20px;
+    }
+  }
   &:hover {
     cursor: auto;
+  }
+  a:hover {
+    color: red;
   }
 `;
 
@@ -113,6 +148,7 @@ const Info = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start; */
+  justify-self: self-start;
   align-self: start;
   width: 250px;
 `;
@@ -132,10 +168,10 @@ const projects: IProject[] = [
   {
     id: '0',
     name: 'Coin Tracker',
-    desc: 'API를 활용한 실시간 가상화폐(코인) 가격 추적기',
+    desc: 'API를 활용한 실시간 \n가상화폐(코인) 가격 추적',
     img: 'coin-tracker.png',
     skill:
-      'React, TypeScript, Recoil, React-query, Styled-component(Lib: ApexChart, React-Helmet)',
+      'React, TypeScript,\nRecoil, React-query, \nStyled-component\n(ApexChart, React-Helmet)',
     site: 'https://jiiiiiaiiiii.github.io/react__coin-tracker',
     github: 'https://github.com/jiiiiiaiiiii/react__coin-tracker',
     more: 'https://lowly-client-ebb.notion.site/Coin-Tracker-7ea2519ad785466182cb87cfd899d830?pvs=4',
@@ -156,7 +192,8 @@ const projects: IProject[] = [
     img: 'ww.png',
     skill: 'React, Redux, Node.js, MongoDB, Vercel',
     site: 'https://0-final-project-team6-w6x1.vercel.app/',
-    github: 'https://github.com/jiiiiiaiiiii/-WW-Social-Activity-Learning-Service',
+    github:
+      'https://github.com/jiiiiiaiiiii/-WW-Social-Activity-Learning-Service',
     more: 'https://www.youtube.com/watch?v=dR1xooSlbNA',
   },
   {
@@ -176,7 +213,7 @@ export default function Project() {
   return (
     <Wrapper>
       <Index>Project</Index>
-      <Grid>
+      <Container>
         {projects.map((project) => (
           <Box
             onClick={() => setId(project.id)}
@@ -184,11 +221,11 @@ export default function Project() {
             layoutId={project.id}
           >
             <p>Click</p>
-            <img src={project.img} />
             <h1>{project.name}</h1>
+            <img src={project.img} />
           </Box>
         ))}
-      </Grid>
+      </Container>
       <AnimatePresence>
         {id ? (
           <Overlay
@@ -205,7 +242,10 @@ export default function Project() {
                   <h2>Introduction</h2>
                   <span>{projects[+id].desc}</span>
                   <h2>Skill</h2>
-                  <span>{projects[+id].skill}</span>
+                  <span>
+                    {projects[+id].skill}
+                    <br />
+                  </span>
                   <span>
                     <a href={projects[+id].site} target='_blank'>
                       Site
@@ -226,7 +266,6 @@ export default function Project() {
           </Overlay>
         ) : null}
       </AnimatePresence>
-      <GitHub />
     </Wrapper>
   );
 }

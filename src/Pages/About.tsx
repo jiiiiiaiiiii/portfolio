@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import GitHub from '../Components/GitHub';
+import '../styles.css';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -15,22 +15,20 @@ const Wrapper = styled.div`
 const Index = styled.div`
   position: absolute;
   top: 0;
-  left: 40px;
-  width: 200px;
+  width: 100%;
   height: 60px;
-  padding: 15px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  background-color: rgba(190, 183, 180, 0.8);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: var(--indexColor);
+  box-shadow: var(--lightBoxShadow);
   text-align: center;
   color: whitesmoke;
-  font-size: 24px;
-  letter-spacing: 2px;
+  font-size: 26px;
+  font-weight: bolder;
+  line-height: 52px;
+  text-shadow: var(--lightTextShadow);
 `;
 
 const Img = styled.div`
-  margin-top: 35px;
+  margin-top: 50px;
   img {
     width: 300px;
   }
@@ -45,7 +43,7 @@ const Infos = styled.div`
   justify-content: center;
   gap: 50px;
   margin-top: 35px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 20px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.15);
   padding: 40px 25px;
@@ -60,12 +58,12 @@ const Info = styled.div`
   h1 {
     display: inline-block;
     border-right: 2px solid rgba(128, 128, 128, 0.8);
-    font-size: 32px;
+    font-size: 34px;
     width: 200px;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.5);
   }
   span {
-    font-size: 18px;
+    font-size: 19px;
     line-height: 2;
   }
 `;
@@ -112,7 +110,6 @@ export default function About() {
           </span>
         </Info>
       </Infos>
-      <GitHub />
     </Wrapper>
   );
 }
