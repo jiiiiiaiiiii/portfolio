@@ -6,52 +6,108 @@ import { Link } from 'react-router-dom';
 import '../styles.css';
 
 const Wrapper = styled.div`
-  height: 10vh;
+  position: fixed;
+  top: 0;
+  z-index: 95;
+  height: 60px;
   width: 100vw;
   display: flex;
   justify-content: space-between;
+  font-size: 15px;
+  list-style: none;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 6vw;
   background-color: white;
-  box-shadow: var(--darkBoxShadow);
+  box-shadow: var(--lightBoxShadow);
+  text-transform: uppercase;
+  a:hover {
+    color: navy;
+  }
 `;
 
 const Logo = styled.div`
-display: flex;
-align-items: center;
-  &:hover {
-    cursor: pointer;
+  font-weight: bold;
+`;
+
+const NavBar = styled.div`
+  padding-right: 35px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  @media (max-width: 500px) {
+    display: none;
   }
-  img {
-    margin-top: 10px;
-    width: 250px;
-    opacity: 0.8;
+  li {
+    padding: 1px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: navy;
+      border-radius: 5px;
+      transform: scaleX(0);
+      transition: all 0.6s ease;
+    }
   }
 `;
 
 const Nav = styled(motion.nav)`
+  width: 100%;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 400px;
-  background-color: var(--accentColor);
-  padding: 150px 30px;
+  background-color: black;
+  padding: 150px 40px;
   transform: translateX(100%);
-  box-shadow: var(--darkBoxShadow);
   z-index: 90;
+  text-transform: uppercase;
+  text-align: right;
   li {
     font-size: 44px;
     margin-bottom: 48px;
     margin-left: 20px;
     color: whitesmoke;
-    text-shadow: var(--lightTextShadow);
+    .smallText {
+      font-size: 18px;
+      padding-right: 10px;
+    }
     &:hover {
       cursor: pointer;
-      font-weight: bold;
       color: aliceblue;
-      text-decoration: line-through;
+      font-weight: bolder;
     }
+  }
+`;
+
+const Contact = styled.div`
+  color: white;
+  border-top: 1px solid white;
+  padding-top: 20px;
+  position: relative;
+  text-transform: none;
+  h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    &:last-child {
+      position: absolute;
+    }
+  }
+  a {
+    font-size: 18px;
+    line-height: 1.5;
+    &:hover {
+      color: yellow;
+      font-weight: bold;
+    }
+  }
+  p {
+    position: absolute;
+    bottom: 0px;
+    color: gray;
   }
 `;
 
@@ -108,17 +164,56 @@ export default function Header() {
     <Wrapper>
       <Logo>
         <Link to='/'>
-          <img src="./logo.png" alt="logo" />
-          </Link>
+          <li>@ZEZE PARK</li>
+        </Link>
       </Logo>
+      <NavBar>
+        <Link to='/about'>
+          <li>About</li>
+        </Link>
+        <span> / </span>
+        <Link to='/project'>
+          <li>Project</li>
+        </Link>
+        <span> / </span>
+        <Link to='/contact'>
+          <li>Contact</li>
+        </Link>
+      </NavBar>
       <div ref={scope}>
-        <Nav>
+        <Nav onClick={() => setIsOpen(false)}>
           <ul>
-          <Link to='/about'><li>About</li></Link>
-            <Link to='/project'><li>Project</li></Link>
-            <Link to='/skill'><li>Skill</li></Link>
-            <Link to='/contact'><li>Contact</li></Link>
+            <Link to='/'>
+              <li>
+                <span className='smallText'>01/</span> Home
+              </li>
+            </Link>
+            <Link to='/about'>
+              <li>
+                <span className='smallText'>02/</span> About
+              </li>
+            </Link>
+            <Link to='/project'>
+              <li>
+                <span className='smallText'>03/</span> Project
+              </li>
+            </Link>
+            <Link to='/contact'>
+              <li>
+                <span className='smallText'>04/</span> Contact
+              </li>
+            </Link>
           </ul>
+          <Contact>
+            <h1>_More &nbsp;&nbsp;&nbsp; +</h1>
+            <a href='https://github.com/jiiiiiaiiiii' target='_blank'>
+              GitHub ↗ <br />
+            </a>
+            <Link to='/contact'>
+              <span>E-mail ↗</span>
+            </Link>
+            <p>@`24 JEEAE PARK</p>
+          </Contact>
         </Nav>
         <ToggleMenu toggle={() => setIsOpen(!isOpen)} />
       </div>

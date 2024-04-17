@@ -3,17 +3,15 @@ import { motion } from 'framer-motion';
 import '../styles.css';
 
 const Btn = styled.div`
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
+	width: 30px;
+  height: 30px;
   z-index: 100;
 	position: absolute;
-	top: 20px;
-	right: 35px;
-	padding: 15px;
-	background-color: var(--accentColor);
+  background-color: black;
+	top: 15px;
+	right: 40px;
+	padding: 8px;
 	cursor: pointer;
-  box-shadow: var(--darkBoxShadow);
 `;
 
 const Path = styled(motion.path)`

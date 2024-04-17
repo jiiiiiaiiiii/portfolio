@@ -3,77 +3,83 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
 const Wrapper = styled.div`
-  /* height: 90vh; */
-  width: 100vw;
-  display: flex;
+  width: 100%;
+  padding-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
-  position: relative;
-  overflow: hidden;
 `;
 
-const Index = styled.div`
-  position: absolute;
-  top: 0;
+const Title = styled.div`
+  padding: 110px 6vw 0;
   width: 100%;
-  height: 60px;
-  background-color: var(--indexColor);
-  box-shadow: var(--lightBoxShadow);
-  text-align: center;
-  color: whitesmoke;
-  font-size: 26px;
-  font-weight: bolder;
-  line-height: 52px;
+  h1 {
+    font-size: 90px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
+  }
+`;
+
+const TabBtns = styled.div`
+  font-size: 18px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  button {
+    font-size: 18px;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      color: navy;
+    }
+  }
 `;
 
 const Container = styled.div`
-  margin-top: 80px;
-  padding: 60px 40px;
-  display: flex;
-  flex-wrap: wrap;
+  padding: 60px 6vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   height: 100%;
-  gap: 35px;
+  gap: 20px;
 `;
 
 const Box = styled(motion.div)`
   position: relative;
   display: flex;
-  gap: 20px;
+  gap: 15px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 350px;
-  width: 480px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: var(--lightBoxShadow);
+  height: 320px;
   overflow: hidden;
   h1 {
     display: block;
-    border-bottom: 1px solid var(--hoverColor);
-    padding-bottom: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--hoverColor);
-    font-family: var(--normalFont);
+    width: 100%;
+    font-size: 22px;
+    font-weight: bolder;
   }
   p {
     position: absolute;
+    top: 10px;
     color: transparent;
     text-align: center;
-    padding-top: 150px;
+    padding-top: 120px;
     font-size: 28px;
     font-weight: bold;
-    height: 100%;
+    height: 260px;
     width: 100%;
   }
   img {
-    height: 250px;
-    width: 400px;
-    border-radius: 5px;
+    height: 260px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: var(--lightBoxShadow);
   }
   &:hover {
     cursor: pointer;
@@ -85,79 +91,86 @@ const Box = styled(motion.div)`
 `;
 
 const Overlay = styled(motion.div)`
-  width: 100%;
-  height: 100%;
-  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const OverBox = styled(Box)`
-  width: 60%;
+  width: 90%;
   max-width: 800px;
   height: max-content;
   padding: 30px;
   background-color: rgb(255, 255, 255);
   white-space: pre-wrap;
   & > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     flex-wrap: wrap;
     gap: 25px;
   }
   img {
-    height: 300px;
-    width: 450px;
-    border-radius: 5px;
+    width: minmax(300px, 500px);
+    height: 100%;
   }
   h1 {
-    font-size: 34px;
-    margin-bottom: 20px;
+    font-size: 32px;
   }
   h2 {
     font-size: 22px;
-    text-decoration: underline;
     font-weight: 600;
     color: var(--accentColor);
-    margin-bottom: 10px;
   }
   span {
     display: block;
     font-size: 18px;
     line-height: 1.4;
     &:not(:last-child) {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
     &:last-child {
       font-size: 20px;
     }
   }
-  &:hover {
-    cursor: auto;
-  }
-  a:hover {
-    color: red;
+  a {
+    color: whitesmoke;
+    display: inline-block;
+    font-size: 16px;
+    border: 1px solid #1b1464;
+    background-color: #1b1464;
+    height: 30px;
+    margin-right: 10px;
+    padding: 10px;
+    line-height: 7px;
+    font-weight: 500;
+    cursor: pointer;
+    &:hover {
+      transition: 0.5s;
+      color: #1b1464;
+      background-color: white;
+      
+    }
   }
 `;
 
 const Info = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start; */
   justify-self: self-start;
   align-self: start;
-  width: 250px;
 `;
 
 interface IProject {
   id: string;
+  category: string;
   name: string;
   desc: string;
   img: string;
   skill: string;
+  etc: string;
   site: string;
   github: string;
   more?: string;
@@ -166,30 +179,35 @@ interface IProject {
 const projects: IProject[] = [
   {
     id: '0',
+    category: 'toy',
     name: 'Coin Tracker',
-    desc: 'API를 활용한 실시간 \n가상화폐(코인) 가격 추적',
-    img: './coin-tracker.png',
-    skill:
-      'React, TypeScript,\nRecoil, React-query, \nStyled-component\n(ApexChart, React-Helmet)',
+    desc: 'Real-time coin price tracker',
+    img: './coin-tracker.jpg',
+    skill: 'React, TypeScript, Recoil, React-query',
+    etc: 'Styled-components, ApexChart, React-Helmet',
     site: 'https://jiiiiiaiiiii.github.io/react__coin-tracker',
     github: 'https://github.com/jiiiiiaiiiii/react__coin-tracker',
     more: 'https://lowly-client-ebb.notion.site/Coin-Tracker-7ea2519ad785466182cb87cfd899d830?pvs=4',
   },
   {
     id: '1',
+    category: 'toy',
     name: 'To Do List',
-    desc: 'cool project',
-    img: './todo-list.png',
-    skill: 'React, TypeScript, Recoil, React-hook-form, Styled-component',
+    desc: 'Check your tasks!',
+    img: './todo-list.jpg',
+    skill: 'React, TypeScript, Recoil',
+    etc: 'React-hook-form, Styled-components',
     site: 'https://jiiiiiaiiiii.github.io/react__todo-list',
     github: 'https://github.com/jiiiiiaiiiii/react__todo-list',
   },
   {
     id: '2',
-    name: '[WW]Social Activity Learning Service',
-    desc: 'cool project',
-    img: './ww.png',
-    skill: 'React, Redux, Node.js, MongoDB, Vercel',
+    category: 'web',
+    name: '[WW] Who Want!',
+    desc: 'Social Activity Learning Service',
+    img: './ww.jpg',
+    skill: 'React, Redux',
+    etc: 'Node.js, MongoDB, Vercel',
     site: 'https://0-final-project-team6-w6x1.vercel.app/',
     github:
       'https://github.com/jiiiiiaiiiii/-WW-Social-Activity-Learning-Service',
@@ -197,10 +215,12 @@ const projects: IProject[] = [
   },
   {
     id: '3',
+    category: 'toy',
     name: 'CSS Layout',
-    desc: 'cool project',
-    img: './css.png',
-    skill: 'HTML, CSS(SCSS)',
+    desc: 'Practice Grid & Flex box',
+    img: './css.jpg',
+    skill: 'HTML, CSS',
+    etc: 'SASS(SCSS)',
     site: 'https://jiiiiiaiiiii.github.io/css__layout',
     github: 'https://github.com/jiiiiiaiiiii/css__layout',
   },
@@ -208,20 +228,43 @@ const projects: IProject[] = [
 
 export default function Project() {
   const [id, setId] = useState<null | string>(null);
+  // const [category, setCategory] = useState<string | null>(null);
+
+  // const filterProjects = (category: string | null) => {
+  //   if (!category) return projects;
+  //   return projects.filter(project => project.category === category);
+  // };
 
   return (
     <Wrapper>
-      <Index>Project</Index>
+      <Title>
+        <h1>Projects</h1>
+        {/* <TabBtns>
+          <button onClick={() => setCategory(null)} className={!category && 'active'}>all</button>
+          <span> / </span>
+          <button onClick={() => setCategory('web')} className={category === 'web' && 'active'}>web site</button>
+          <span> / </span>
+          <button onClick={() => setCategory('toy')} className={category === 'toy' && 'active'}>toy</button>
+        </TabBtns> */}
+        <TabBtns>
+          <button>all</button>
+          <span> / </span>
+          <button>web site</button>
+          <span> / </span>
+          <button>toy</button>
+        </TabBtns>
+      </Title>
       <Container>
         {projects.map((project) => (
           <Box
+            className={project.category}
             onClick={() => setId(project.id)}
             key={project.id}
             layoutId={project.id}
           >
-            <p>Click</p>
-            <h1>{project.name}</h1>
+            <p>MORE</p>
             <img src={project.img} />
+            <h1>{project.name}</h1>
           </Box>
         ))}
       </Container>
@@ -245,17 +288,21 @@ export default function Project() {
                     {projects[+id].skill}
                     <br />
                   </span>
+                  <h2>Etc</h2>
+                  <span>
+                    {projects[+id].etc}
+                    <br />
+                  </span>
                   <span>
                     <a href={projects[+id].site} target='_blank'>
                       Site
-                    </a>{' '}
-                    |{' '}
+                    </a>
                     <a href={projects[+id].github} target='_blank'>
                       Source Code
-                    </a>{' '}
+                    </a>
                     {projects[+id].more ? (
                       <a href={projects[+id].more} target='_blank'>
-                        | Detail
+                        Detail
                       </a>
                     ) : null}
                   </span>

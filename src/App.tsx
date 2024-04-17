@@ -6,6 +6,7 @@ import Skill from './Pages/Skill';
 import Contact from './Pages/Contact';
 import Header from './Components/Header';
 import GitHub from './Components/GitHub';
+import Footer from './Components/Footer';
 
 
 
@@ -20,7 +21,8 @@ function App() {
         <Route path='/contact'><Contact /></Route>
         <Route path='/'><Home /></Route>
       </Switch>
-      <GitHub />
+      <Footer />
+      {/* <GitHub /> */}
     </Router>
     
   );

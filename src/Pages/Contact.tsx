@@ -5,69 +5,81 @@ import { motion } from 'framer-motion';
 import '../styles.css';
 
 const Wrapper = styled.div`
-  height: 110vh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
+  overflow: hidden;
 `;
 
-const Index = styled.div`
-  position: absolute;
-  top: 0;
+const Title = styled.div`
+  padding: 110px 6vw 10px;
   width: 100%;
-  height: 60px;
-  background-color: var(--indexColor);
-  box-shadow: var(--lightBoxShadow);
-  text-align: center;
-  color: whitesmoke;
-  font-size: 26px;
-  font-weight: bolder;
-  line-height: 52px;
-`;
-
-const Title = styled.h1`
-  margin-top: 100px;
-  font-size: 34px;
-  line-height: 1.8;
+  h1 {
+    font-size: 90px;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid gray;
+  }
+  p {
+    padding-top: 10px;
+    font-size: clamp(18px, 4vw, 22px);
+    text-align: center;
+    font-weight: 500;
+  }
 `;
 
 const EmailForm = styled.form`
-  margin: 30px auto;
-  width: 620px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 40px 50px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
+  padding: auto 6vw;
+  border-top: 3px solid black;
+  margin: 50px auto 100px;
+  width: 90%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 90px 90px 200px;
+  gap: 1px;
   box-shadow: var(--lightBoxShadow);
-  label {
-    font-size: 28px;
+  background-color: black;
+  div {
+    padding: 8px;
+    background-color: white;
+    &:nth-child(3),
+    &:nth-child(4) {
+      grid-column: span 2;
+    }
   }
-  input {
-    padding: 10px;
-    font-size: 20px;
-    border: 0.5px solid black;
+  label {
+    font-size: 18px;
+    display: block;
     margin-bottom: 10px;
   }
+  input {
+    font-size: 16px;
+    border: none;
+
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
   textarea {
-    padding: 10px;
     min-height: 100px;
     font-family: inherit;
-    font-size: 20px;
-    border: 0.5px solid black;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
   }
   button {
+    grid-column: span 2;
     color: whitesmoke;
-    font-family: inherit;
-    font-size: 24px;
-    margin-top: 10px;
+    font-size: 20px;
     padding: 10px;
     font-weight: 600;
     border: none;
-    border-radius: 5px;
     box-shadow: var(--darkBoxShadow);
     background-color: var(--accentColor);
     transition: 0.2s ease-in-out;
@@ -81,7 +93,7 @@ const EmailForm = styled.form`
 
 const Overlay = styled(motion.div)`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -89,8 +101,8 @@ const Overlay = styled(motion.div)`
 `;
 
 const Send = styled.div`
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   padding-top: 20px;
   padding-left: 5px;
   background-color: rgba(255, 255, 255, 0.9);
@@ -102,11 +114,11 @@ const Send = styled.div`
 `;
 
 const Svg = styled.svg`
-  width: 250px;
-  height: 250px;
+  width: 100px;
+  height: 100px;
   path {
     stroke: var(--accentColor);
-    stroke-width: 3;
+    stroke-width: 2;
   }
 `;
 
@@ -119,8 +131,7 @@ const svgVar = {
     pathLength: 1,
     fill: 'rgba(4, 19, 43, 1)',
     transition: {
-      default: { duration: 3 }, // 모든 property에 적용
-      fill: { duration: 1, delay: 2 },
+      duration: 1.5,
     },
   },
 };
@@ -153,25 +164,28 @@ export default function Contact() {
 
   return (
     <Wrapper>
-      <Index>Contact</Index>
       <Title>
-        If you have any questions, send me a mail.
-        <br />
-        I'll get back to you as soon as possible.
+        <h1>Contact</h1>
+        <p>If you have any questions, send me a mail.</p>
+        <p>I'll get back to you as soon as possible.</p>
       </Title>
       <EmailForm ref={form as any} onSubmit={sendEmail}>
-        <label>Name</label>
-        <input required type='text' name='from_name' placeholder='Your Name' />
-        <label>Email</label>
-        <input
-          type='email'
-          name='from_mail'
-          placeholder='eg, abc123@mail.com'
-        />
-        <label>Title</label>
-        <input required type='text' name='from_title' />
-        <label>Message</label>
-        <textarea name='message' />
+        <div>
+          <label>NAME</label>
+          <input required type='text' name='from_name' />
+        </div>
+        <div>
+          <label>EMAIL</label>
+          <input type='email' name='from_mail' />
+        </div>
+        <div>
+          <label>TITLE</label>
+          <input required type='text' name='from_title' />
+        </div>
+        <div>
+          <label>MESSAGE</label>
+          <textarea name='message' />
+        </div>
         <button>Send</button>
       </EmailForm>
       {isSend ? (
@@ -195,8 +209,4 @@ export default function Contact() {
       ) : null}
     </Wrapper>
   );
-}
-
-{
-  /* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"/></svg> */
 }

@@ -53,20 +53,14 @@ table {
 }
 body {
   font-family: var(--normalFont);
-  font-weight: 400;
+  /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
   font-style: normal;
   color: black;
-  line-height: 1.2;
-  background-color: var(--bgColor);
 }
-h1, li, label {
-  font-family: var(--accentFont);
-  text-shadow: var(--textShadow);
-}
+
 a {
   text-decoration: none;
-  font-weight: bolder;
-  /* color:var(--accentColor); */
+  &:visited, &:active {color:inherit;}
 }
 `;
 
