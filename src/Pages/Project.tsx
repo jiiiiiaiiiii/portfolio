@@ -190,7 +190,18 @@ const projects: IProject[] = [
     more: 'https://lowly-client-ebb.notion.site/Coin-Tracker-7ea2519ad785466182cb87cfd899d830?pvs=4',
   },
   {
-    id: '1',
+    id: '0',
+    category: 'toy',
+    name: 'Shopping Cart',
+    desc: 'Get your game-boy!',
+    img: './shopping-cart.jpg',
+    skill: 'React, Vanilla JS',
+    etc: 'Tailwind',
+    site: 'https://react-shopping-cart-nu-three.vercel.app',
+    github: 'https://github.com/jiiiiiaiiiii/react__shopping-cart'
+  },
+  {
+    id: '2',
     category: 'toy',
     name: 'To Do List',
     desc: 'Check your tasks!',
@@ -201,7 +212,7 @@ const projects: IProject[] = [
     github: 'https://github.com/jiiiiiaiiiii/react__todo-list',
   },
   {
-    id: '2',
+    id: '3',
     category: 'web',
     name: '[WW] Who Want!',
     desc: 'Social Activity Learning Service',
@@ -214,7 +225,7 @@ const projects: IProject[] = [
     more: 'https://www.youtube.com/watch?v=dR1xooSlbNA',
   },
   {
-    id: '3',
+    id: '4',
     category: 'toy',
     name: 'CSS Layout',
     desc: 'Practice Grid & Flex box',

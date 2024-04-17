@@ -143,6 +143,16 @@ const projects: IProject[] = [
   },
   {
     id: '2',
+    name: 'Shopping Cart',
+    desc: 'Get your game-boy!',
+    img: './shopping-cart.jpg',
+    skill: 'React, Vanilla JS',
+    etc: 'Tailwind',
+    site: 'https://react-shopping-cart-nu-three.vercel.app',
+    github: 'https://github.com/jiiiiiaiiiii/react__shopping-cart'
+  },
+  {
+    id: '3',
     name: 'To Do List',
     desc: 'Check your tasks',
     img: './todo-list.jpg',
@@ -150,17 +160,6 @@ const projects: IProject[] = [
     etc: 'React-hook-form, Styled-components',
     site: 'https://jiiiiiaiiiii.github.io/react__todo-list',
     github: 'https://github.com/jiiiiiaiiiii/react__todo-list',
-  },
-  {
-    id: '3',
-    name: '[WW]Who Want!',
-    desc: 'Social Activity Learning Service',
-    img: './ww.jpg',
-    skill: 'React, Redux',
-    etc: 'Node.js, MongoDB, Vercel',
-    site: 'https://0-final-project-team6-w6x1.vercel.app/',
-    github:
-      'https://github.com/jiiiiiaiiiii/-WW-Social-Activity-Learning-Service',
   },
   {
     id: '4',
