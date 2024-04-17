@@ -175,11 +175,12 @@ const projects: IProject[] = [
 ];
 
 function Slider() {
-  const [imgSrc, setImgSrc] = useState('./coin-tracker.png');
-
+  const defaultImgSrc = './coin-tracker.jpg';
+  const [imgSrc, setImgSrc] = useState(defaultImgSrc);
   const imgHover = (newImgSrc: string) => {
     setImgSrc(newImgSrc);
   };
+
 
   return (
     <Wrapper>
@@ -187,12 +188,12 @@ function Slider() {
       <Link to='/project'>
         <span className='link'>
           <br />
-          All Projects +{' '}
+          All Projects +
         </span>
       </Link>
       <ProjectCard>
         <ProjectImg>
-          <img src={imgSrc} alt='프로젝트 이미지' />
+          <img src={imgSrc} />
         </ProjectImg>
         <ProjectInfo>
           {projects.map((project) => (

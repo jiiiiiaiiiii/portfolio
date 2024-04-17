@@ -105,7 +105,7 @@ const OverBox = styled(Box)`
   width: 90%;
   max-width: 800px;
   height: max-content;
-  padding: 30px;
+  padding: 20px 30px;
   background-color: rgb(255, 255, 255);
   white-space: pre-wrap;
   & > div {
